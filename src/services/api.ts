@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 export const uploadPDF = async (file: File): Promise<{ filename: string }> => {
     const formData = new FormData();

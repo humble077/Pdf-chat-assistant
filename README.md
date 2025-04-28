@@ -86,3 +86,22 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Environment Configuration
+
+1. Create a `.env` file in the root directory with the following variables:
+```bash
+# OpenAI API Configuration
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Backend Configuration
+BACKEND_URL=http://localhost:8000
+ALLOWED_ORIGINS=http://localhost:3000
+
+# Frontend Configuration
+REACT_APP_API_URL=http://localhost:8000
+```
+
+2. Create a `.env` file in the backend directory with the same variables.
+
+Note: Make sure to never commit your actual `.env` files to version control. They are already included in `.gitignore`.
