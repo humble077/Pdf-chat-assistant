@@ -1,6 +1,6 @@
-# PDF Chat Assistant - Project Links and Resources
+# PDF Chat Assistant - Project Resources and References
 
-## Project Links
+## Project Documentation
 - [GitHub Repository](https://github.com/humble077/Pdf-chat-assistant)
 - [Live Demo](https://your-demo-url.com) (if deployed)
 - [Project Documentation](https://github.com/humble077/Pdf-chat-assistant/blob/master/README.md)
@@ -56,13 +56,13 @@
 - [Future Enhancements](https://github.com/humble077/Pdf-chat-assistant/blob/master/ARCHITECTURE.md#future-enhancements)
 - [Planned Features](https://github.com/humble077/Pdf-chat-assistant/blob/master/ARCHITECTURE.md#planned-features)
 
-## Contact Information
-- GitHub: [humble077](https://github.com/humble077)
-- LinkedIn: [Your LinkedIn Profile] (if applicable)
-- Portfolio: [Your Portfolio Website] (if applicable)
-
-## Additional Resources
+## Project Resources
 - [Project Presentation Slides] (if available)
 - [Demo Video] (if available)
 - [Technical Blog Posts] (if available)
-- [Case Studies] (if available) 
+- [Case Studies] (if available)
+
+## Contact Information
+- GitHub: [humble077](https://github.com/humble077)
+- LinkedIn: [Your LinkedIn Profile] (if applicable)
+- Portfolio: [Your Portfolio Website] (if applicable) 
