@@ -6,7 +6,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: white;
+  background-color: #f8fafc;
 `;
 
 const Header = styled.header`
@@ -14,19 +14,44 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 `;
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   font-size: 20px;
   font-weight: 500;
   color: #333;
   
   img {
     height: 32px;
+    width: 32px;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .brand-name {
+    color: #1a202c;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .sub-text {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
   }
 `;
 
@@ -41,12 +66,20 @@ const PDFIndicator = styled.div`
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-  color: #333;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #1a202c;
+  font-size: 14px;
+  transition: all 0.2s ease;
   
   svg {
     color: #00a67e;
+  }
+
+  &:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
   }
 `;
 
@@ -55,15 +88,37 @@ const UploadButton = styled.button`
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
   background-color: white;
-  color: #333;
+  color: #1a202c;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
   
   &:hover {
-    background-color: #f8f9fa;
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+  }
+
+  &:active {
+    background-color: #f1f5f9;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover svg {
+    transform: translateY(-1px);
   }
 `;
 
@@ -74,54 +129,96 @@ const ChatContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
 `;
 
 const MessageGroup = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: flex-start;
+  animation: fadeIn 0.3s ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
 const Avatar = styled.div<{ isUser?: boolean }>`
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background-color: ${props => props.isUser ? '#9ca3af' : '#00a67e'};
+  background-color: ${props => props.isUser ? '#64748b' : '#00a67e'};
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
+  font-weight: 500;
   flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 `;
 
 const Message = styled.div<{ isUser?: boolean }>`
   max-width: 70%;
   padding: 16px;
-  border-radius: 8px;
-  background-color: ${props => props.isUser ? '#f8f9fa' : 'white'};
-  color: #333;
+  border-radius: 12px;
+  background-color: ${props => props.isUser ? '#f1f5f9' : 'white'};
+  color: #1a202c;
   font-size: 15px;
-  line-height: 1.5;
-  box-shadow: ${props => props.isUser ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.1)'};
+  line-height: 1.6;
+  box-shadow: ${props => props.isUser ? 'none' : '0 2px 4px rgba(0, 0, 0, 0.05)'};
+  border: 1px solid ${props => props.isUser ? '#e2e8f0' : 'transparent'};
 `;
 
 const InputContainer = styled.div`
   padding: 24px;
   background-color: white;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
 `;
 
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  max-width: 768px;
+  max-width: 900px;
   margin: 0 auto;
   background-color: white;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 8px 16px;
+  transition: all 0.2s ease;
+
+  &:focus-within {
+    border-color: #00a67e;
+    box-shadow: 0 0 0 2px rgba(0, 166, 126, 0.1);
+  }
 `;
 
 const Input = styled.input`
@@ -129,13 +226,19 @@ const Input = styled.input`
   border: none;
   font-size: 15px;
   padding: 8px 0;
+  color: #1a202c;
   
   &:focus {
     outline: none;
   }
   
   &::placeholder {
-    color: #9ca3af;
+    color: #94a3b8;
+  }
+
+  &:disabled {
+    background: transparent;
+    color: #94a3b8;
   }
 `;
 
@@ -144,15 +247,32 @@ const SendButton = styled.button`
   border: none;
   padding: 8px;
   cursor: pointer;
-  color: #9ca3af;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  border-radius: 6px;
   
   &:hover {
     color: #00a67e;
+    background-color: #f8fafc;
+  }
+
+  &:active {
+    background-color: #f1f5f9;
+  }
+  
+  &:disabled {
+    color: #cbd5e1;
+    cursor: not-allowed;
   }
   
   svg {
     width: 20px;
     height: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover:not(:disabled) svg {
+    transform: translateX(2px);
   }
 `;
 
@@ -219,8 +339,11 @@ function App() {
     <AppContainer>
       <Header>
         <Logo>
-          <img src="/logo.svg" alt="AI Planet" />
-          AI Planet
+          <img src="/ai-planet-logo.svg" alt="AI Planet" />
+          <div className="logo-text">
+            <span className="brand-name">Planet</span>
+            <span className="sub-text">formerly DPHI</span>
+          </div>
         </Logo>
         <HeaderActions>
           {currentPDF && (
